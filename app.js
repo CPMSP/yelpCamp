@@ -53,6 +53,7 @@ app.use('/campgrounds/:id/comments', commentRoutes);
 app.use('/campgrounds', campgroundRoutes);
 
 
-app.listen(3000, function () {
-    console.log('Now serving on Port 3000')
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Now serving on PORT ${ PORT }`);
 });
