@@ -19,7 +19,7 @@ const   commentRoutes = require('./routes/comments'),
 
 const db = process.env.MONGODB_URL;
 
-mongoose.connect('mongodb://localhost/yelpCamp' || db, {
+mongoose.connect(db, {
         useUnifiedTopology: true,
         useNewUrlParser: true
     }).then(() => {
