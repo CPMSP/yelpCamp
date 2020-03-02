@@ -19,6 +19,12 @@ const   commentRoutes = require('./routes/comments'),
 
 const db = process.env.MONGODB_URL;
 
+// Local DB
+
+// mongoose.connect('mongodb://localhost/yelpCamp, { useUnifiedTopology: true, useNewUrlParser: true }');
+
+// Mongo Atlas DB
+
 mongoose.connect(db, {
         useUnifiedTopology: true,
         useNewUrlParser: true
