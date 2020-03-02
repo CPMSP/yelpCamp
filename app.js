@@ -19,18 +19,15 @@ const   commentRoutes = require('./routes/comments'),
 
 const db = process.env.MONGODB_URL;
 
-const connectDB = async () => {
-    try {
-    await mongoose.connect(db, {
+mongoose.connect(db, {
         useUnifiedTopology: true,
         useNewUrlParser: true
-    });
+    }).then(() => {
     console.log("MongoDB is Connected...");
-    } catch (err) {
+    }). catch (err => {
     console.error(err.message);
     process.exit(1);
-    }
-};
+    });
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
