@@ -16,24 +16,24 @@ const   express = require('express'),
 const   commentRoutes = require('./routes/comments'),
         campgroundRoutes = require('./routes/campgrounds'),
         indexRoutes = require('./routes/index');
-
-const db = process.env.MONGODB_URL;
-
+        
 // Local DB
 
 // mongoose.connect('mongodb://localhost/yelpCamp, { useUnifiedTopology: true, useNewUrlParser: true }');
+const db = process.env.MONGODB_URL || 'mongodb://localhost/yelpCamp';
+mongoose.connect(db, { useUnifiedTopology: true, useNewUrlParser: true });
 
 // Mongo Atlas DB
 
-mongoose.connect(db, {
-        useUnifiedTopology: true,
-        useNewUrlParser: true
-    }).then(() => {
-    console.log("MongoDB is Connected...");
-    }). catch (err => {
-    console.error(err.message);
-    process.exit(1);
-    });
+// mongoose.connect(db, {
+//         useUnifiedTopology: true,
+//         useNewUrlParser: true
+//     }).then(() => {
+//     console.log("MongoDB is Connected...");
+//     }). catch (err => {
+//     console.error(err.message);
+//     process.exit(1);
+//     });
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
