@@ -19,7 +19,7 @@ const   commentRoutes = require('./routes/comments'),
 
 const db = process.env.MONGODB_URL;
 
-mongoose.connect(db, {
+mongoose.connect('mongodb://localhost/yelpCamp' || db, {
         useUnifiedTopology: true,
         useNewUrlParser: true
     }).then(() => {
@@ -66,5 +66,5 @@ app.use('/campgrounds', campgroundRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`Our app is running on port ${ PORT }`);
+    console.log(`Serving on port ${ PORT }`);
 });
